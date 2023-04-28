@@ -65,8 +65,8 @@ makeDistPlot<- function(svydata, var1, var2){
                                   names_to = paste(var1), values_to = "percent")
   
   # Remove "CSRVPAIN" from the variable name using stringr
- bar_Values_long <- bar_Values_long %>%
-   mutate(!!var1 := str_remove(!!var1, paste0("'", var1, "'")))
+  bar_Values_long <- bar_Values_long %>%
+    mutate(!!var1 := str_remove(!!var1, paste0("'", !!var1, "'")))
   
   
  ggplot(bar_Values_long, aes(x = .data[[var1]], y = percent, fill = .data[[var2]])) +
