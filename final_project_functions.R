@@ -16,7 +16,7 @@ makeBarPlot <- function(svydata, var1, var2){
     geom_col() +
     geom_errorbar(aes(x = .data[[var2]], ymin = (.data[[var1]] - 1.96 * .data[["se"]]), ymax = (.data[[var1]] + 1.96 * .data[["se"]])), width = 0.5, linewidth = 0.74, position = position_dodge(0.3)) +
     theme_classic() +
-    ggtitle("Distribution Plot")
+    ggtitle("State Prediction Plot")
 
 }
 
@@ -74,7 +74,7 @@ makeDistPlot<- function(svydata, var1, var2){
   facet_wrap(as.formula(paste0("~", var2))) +
    labs(x = as_label(var1), y = "Percent") +
    theme_classic() +
-   ggtitle("State Prediction Plot")
+   ggtitle("Distribution Plot")
 
   
 }
